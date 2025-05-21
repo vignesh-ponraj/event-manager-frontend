@@ -4,16 +4,16 @@ import axios from "axios";
 function App() {
   const [events, setEvents] = useState([]);
   const [date, setDate] = useState("2024-05-20");
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!date) return;
-    // setLoading(true);
+    setLoading(true);
     axios
       .get(`${import.meta.env.VITE_API_URL}/${date}`)
       .then((res) => setEvents(res.data))
-      .catch((err) => setEvents([]));
-    // .finally(() => setLoading(false));
+      .catch((err) => setEvents([]))
+      .finally(() => setLoading(false));
   }, [date]);
 
   return (
@@ -48,27 +48,26 @@ function App() {
           border: "1px solid #ccc",
         }}
       />
-      {
-        // loading ? (
-        //   <div style={{ margin: "2rem" }}>
-        //     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        //       <circle
-        //         cx="24"
-        //         cy="24"
-        //         r="20"
-        //         stroke="#7faaff"
-        //         strokeWidth="4"
-        //         opacity="0.25"
-        //       />
-        //       <path
-        //         d="M44 24c0-11.046-8.954-20-20-20"
-        //         stroke="#3076ff"
-        //         strokeWidth="4"
-        //         strokeLinecap="round"
-        //       />
-        //     </svg>
-        //   </div>
-        // ) :
+      {loading ? (
+        <div style={{ margin: "2rem" }}>
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <circle
+              cx="24"
+              cy="24"
+              r="20"
+              stroke="#7faaff"
+              strokeWidth="4"
+              opacity="0.25"
+            />
+            <path
+              d="M44 24c0-11.046-8.954-20-20-20"
+              stroke="#3076ff"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
+      ) : (
         <table
           style={{
             marginTop: "2rem",
@@ -104,7 +103,7 @@ function App() {
             )}
           </tbody>
         </table>
-      }
+      )}
     </div>
   );
 }
