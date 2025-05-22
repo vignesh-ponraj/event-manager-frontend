@@ -13,6 +13,28 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dark-picker .react-datepicker__header,
+.dark-picker .react-datepicker__current-month,
+.dark-picker .react-datepicker__day-name,
+.dark-picker .react-datepicker__day,
+.dark-picker .react-datepicker__day--selected,
+.dark-picker .react-datepicker__day--keyboard-selected {
+  background-color: #222 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.dark-picker .react-datepicker__day--selected {
+  background-color: #3076ff !important;
+  color: #fff !important;
+}
+
+.dark-picker input {
+  width: 10px;
+  height: 2.2em;
+  border-radius: 12px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
