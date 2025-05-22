@@ -32,15 +32,6 @@ function App() {
       }}
     >
       <h1>Event Viewer</h1>
-      <div
-        style={{
-          fontSize: "0.8rem",
-          color: "#888",
-          marginBottom: "1.5rem",
-        }}
-      >
-        (only the first content load takes about 30-35s)
-      </div>
       <span
         style={{
           marginLeft: "1rem",
